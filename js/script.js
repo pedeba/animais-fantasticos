@@ -6,7 +6,7 @@ import initModal from './modules/modal.js'
 import initTooltip from './modules/tooltip.js'
 import initDropdownMenu from './modules/dropdown-menu.js'
 import initMenuMobile from './modules/menu-mobile.js'
-import initFetchBitcoin from './modules/fetch-bitcoin.js'
+import fetchBitcoin from './modules/fetch-bitcoin.js'
 import initDataObject from './modules/data-object.js'
 import fetchAnimais from './modules/fetch-animais.js'
 
@@ -17,6 +17,7 @@ const tabnav = new TabNav('.js-tabmenu li', '.js-tabcontent section')
 tabnav.init()
 
 fetchAnimais('../../animaisapi.json','.numeros-grid')
+fetchBitcoin('https://blockchain.info/ticker', '.btc-preco')
 initScrollSuave()
 initScrollAnima()
 
