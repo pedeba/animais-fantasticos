@@ -1,5 +1,5 @@
 import initScrollSuave from  './modules/scroll-suave.js'
-import initScrollAnima from './modules/scroll-animacao.js'
+import ScrollAnima from './modules/scroll-animacao.js'
 import Accordion from './modules/accordion-list.js'
 import TabNav from './modules/tab-nav.js'
 import initModal from './modules/modal.js'
@@ -18,6 +18,9 @@ tabnav.init()
 
 fetchAnimais('../../animaisapi.json','.numeros-grid')
 fetchBitcoin('https://blockchain.info/ticker', '.btc-preco')
+
+const scrollanima = new ScrollAnima('.js-scroll')
+scrollanima.init()
 initScrollSuave()
 initScrollAnima()
 
