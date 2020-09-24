@@ -1,7 +1,7 @@
 import initScrollSuave from  './modules/scroll-suave.js'
 import initScrollAnima from './modules/scroll-animacao.js'
 import Accordion from './modules/accordion-list.js'
-import initTabNav from './modules/tab-nav.js'
+import TabNav from './modules/tab-nav.js'
 import initModal from './modules/modal.js'
 import initTooltip from './modules/tooltip.js'
 import initDropdownMenu from './modules/dropdown-menu.js'
@@ -12,10 +12,13 @@ import initFetchAnimais from './modules/fetch-animais.js'
 
 const accordion = new Accordion('.js-accordion dt')
 accordion.init()
+
+const tabnav = new TabNav('.js-tabmenu li', '.js-tabcontent section')
+tabnav.init()
 initScrollSuave()
 initScrollAnima()
 
-initTabNav()
+
 initModal()
 initTooltip()
 initDropdownMenu()
