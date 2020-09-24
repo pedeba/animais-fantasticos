@@ -8,13 +8,15 @@ import initDropdownMenu from './modules/dropdown-menu.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import initFetchBitcoin from './modules/fetch-bitcoin.js'
 import initDataObject from './modules/data-object.js'
-import initFetchAnimais from './modules/fetch-animais.js'
+import fetchAnimais from './modules/fetch-animais.js'
 
 const accordion = new Accordion('.js-accordion dt')
 accordion.init()
 
 const tabnav = new TabNav('.js-tabmenu li', '.js-tabcontent section')
 tabnav.init()
+
+fetchAnimais('../../animaisapi.json','.numeros-grid')
 initScrollSuave()
 initScrollAnima()
 
@@ -25,4 +27,3 @@ initDropdownMenu()
 initMenuMobile()
 initFetchBitcoin()
 initDataObject()
-initFetchAnimais()
