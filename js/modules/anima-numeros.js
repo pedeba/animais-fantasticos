@@ -1,31 +1,41 @@
-export default function initAnimaNumeros(){
-
-}
-
-function animaNumeros() {
-    const numeros = document.querySelectorAll('[data-numero]')
-    numeros.forEach((numero)=>{
-    const total = +numero.innerText
-    const encremento = Math.floor(total/100)
-    let start = 0
-    const timer = setInterval(()=>{
-        start = start + encremento
-        numero.innerText = start
-        if(start>total) {
-            numero.innerText = total
-             clearInterval(timer)
+export default class AnimaNumeros{
+    constructor(numeros,observertarget, observerclass){
+        this.numeros = document.querySelectorAll(numeros)
+        this.observertarget = document.querySelector(observertarget)
+        this.observerclass = observerclass
+        this.aaa = this.aaa.bind(this)
+    }
+    static incrementarNumero(){
+        const total = +numero.innerText
+        const incremento = Math.floor(total/100)
+        let start = 0
+        const timer = setInterval(()=>{
+            start = start + incremento
+            numero.innerText = start
+            if(start>total) {
+                numero.innerText = total
+                 clearInterval(timer)
+            }
+        },25 * Math.random())
+    }
+    animaNumeros() {
+        this.numeros.forEach(numero=> this.constructor.incrementarNumero(numero))
+    }
+    aaa(mutation){
+        if(mutation[0].target.classList.contains(this.observerclass)){
+            this.observer.disconnect()
+            this.animaNumeros()
         }
-    },25 * Math.random())
-})
-}
-
-
-function aaa(mutation){
-    if(mutation[0].target.classList.contains('ativo')){
-        observer.disconnect()
-        animaNumeros()
+    }
+    addmutationobserver(){
+        this.observer = new MutationObserver(this.aaa)
+        this.observer.observe(this.observertarget, {attributes: true})
+    }
+    init(){
+        this.addmutationobserver()
     }
 }
-const observado = document.querySelector('.numeros')
-const observer = new MutationObserver(aaa)
-observer.observe(observado, {attributes: true})
+
+
+
+
